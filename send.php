@@ -1,10 +1,10 @@
 //THANKS TO http://www.freecontactform.com/email_form.php for the code!
 
 <?php
-if(isset($_GET['email'])) {
+if(isset($_POST['email'])) {
  
     $email_to = "llamaos@airmail.cc";
-    $email_subject = $_GET['subject'];
+    $email_subject = $_POST['subject'];
  
     function died($error) {
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
@@ -16,20 +16,20 @@ if(isset($_GET['email'])) {
  
  
     // validation expected data exists
-    if(!isset($_GET['name']) ||
-        !isset($_GET['email']) ||
-        !isset($_GET['website']) ||
-        !isset($_GET['address']) ||
-        !isset($_GET['message'])) {
+    if(!isset($_POST['name']) ||
+        !isset($_POST['email']) ||
+        !isset($_POST['website']) ||
+        !isset($_POST['address']) ||
+        !isset($_POST['message'])) {
         died('We are sorry, but there appears to be a problem with the form you submitted.');       
     }
  
      
  
-    $name = $_GET['name']; // required
-    $email_from = $_GET['email']; // required
-    $website = $_GET['website']; // not required
-    $message = $_GET['message']; // required
+    $name = $_POST['name']; // required
+    $email_from = $_POST['email']; // required
+    $website = $_POST['website']; // not required
+    $message = $_POST['message']; // required
  
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
